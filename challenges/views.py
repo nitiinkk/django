@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
+from django.urls import reverse
 
 # Create your views here.
 month_by_key = {
@@ -16,6 +17,17 @@ month_by_key = {
     "november": "exercise for 10 mins",
     "december": "drive for 10 mins"
 }
+
+def index(request) :
+    list_items = ""
+    months = list(month_by_key.keys())
+    for month in months:
+        capitalized_month = month.capitalize()
+        month_path = reverse("month-challenge", args=[month])
+        list_items+=f"<h1><a href=\"{month_path}\">{capitalized_month}</a></h1>"
+    
+    response_data = f"<ul>{list_items}</ul>"
+    return HttpResponse(response_data)
 
 def monthly_challenge_by_number(request, month) :
     monthList = list(month_by_key.keys()) #dict_keys(['a', 'b', 'c']), <class 'dict_keys'>

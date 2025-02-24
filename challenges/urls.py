@@ -2,6 +2,7 @@ from django.urls import path
 from . import views #from same folder import views
 
 urlpatterns = [
+    path("", views.index), # /challenges/
     path("<int:month>", views.monthly_challenge_by_number),
-    path("<str:month>", views.monthly_challenge) #dynamic path segment
+    path("<str:month>", views.monthly_challenge, name="month-challenge") #dynamic path segment
 ]
