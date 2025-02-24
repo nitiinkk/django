@@ -11,3 +11,7 @@
 ## Dynamic Path segment & Captured Values
 - Dynamic Path segment: So these act as keyword arguments, which Django will use to forward the captured values for these dynamic parameters to the view function that is being executed.
 - And in there, we could now check with the IF statement, for example, if month is equal to January.
+
+## Path Converters
+```<int:month>``` can be used to call different view based on the type of value passed
+- https://docs.djangoproject.com/en/5.1/topics/http/urls/#path-converters
