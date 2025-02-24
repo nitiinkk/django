@@ -29,6 +29,7 @@ def monthly_challenge_by_number(request, month) :
 def monthly_challenge(request, month) :
     try:
         challenge_text = month_by_key[month]
-        return HttpResponse(challenge_text)
+        response_data = f"<h1>{challenge_text}</h1>" #interpolated html
+        return HttpResponse(response_data)
     except:
-        return HttpResponseNotFound(" Format Not supported for month: {}".format(month))
+        return HttpResponseNotFound("<h1>Format Not supported for month</h1>")
