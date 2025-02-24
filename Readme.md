@@ -7,3 +7,7 @@
 
 ## Urls & Views
 <img src="./img/req-res-flow.png" alt="req-res-cycle">
+
+## Dynamic Path segment & Captured Values
+- Dynamic Path segment: So these act as keyword arguments, which Django will use to forward the captured values for these dynamic parameters to the view function that is being executed.
+- And in there, we could now check with the IF statement, for example, if month is equal to January.
